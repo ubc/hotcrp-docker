@@ -30,6 +30,7 @@ RUN rm -rf /var/lib/apt/lists/*
 
 COPY www.conf /usr/local/etc/php-fpm.d/
 COPY php.ini /usr/local/etc/php/
+COPY hotcrp-options.php /var/www/html/conf/options.php
 
 WORKDIR /var/www/html
 
