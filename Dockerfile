@@ -28,6 +28,9 @@ RUN docker-php-ext-install zip
 
 RUN rm -rf /var/lib/apt/lists/*
 
+COPY www.conf /usr/local/etc/php-fpm.d/
+COPY php.ini /usr/local/etc/php/
+
 WORKDIR /var/www/html
 
 RUN curl -L https://github.com/kohler/hotcrp/archive/b8e20954e92d9345463637e00158c9afffb56af0.tar.gz | tar xz --strip=1
