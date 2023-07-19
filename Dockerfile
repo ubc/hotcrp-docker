@@ -33,10 +33,11 @@ COPY php.ini /usr/local/etc/php/
 COPY hotcrp-options.php /var/www/html/conf/options.php
 COPY --chmod=755 docker-entrypoint.sh /docker-entrypoint.sh
 
-RUN touch /var/log/msmtp.log && chown www-data:www-data /var/log/msmtp.log
+RUN touch /var/log/msmtp.log && chown www-data:www-data /var/log/msmtp.log && mkdir /shared
 
 WORKDIR /var/www/html
 
 RUN curl -L https://github.com/kohler/hotcrp/archive/b8e20954e92d9345463637e00158c9afffb56af0.tar.gz | tar xz --strip=1
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["php-fpm"]
