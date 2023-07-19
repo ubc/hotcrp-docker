@@ -31,7 +31,7 @@ RUN rm -rf /var/lib/apt/lists/*
 COPY www.conf /usr/local/etc/php-fpm.d/
 COPY php.ini /usr/local/etc/php/
 COPY hotcrp-options.php /var/www/html/conf/options.php
-COPY --chmod=644 docker-entrypoint.sh /docker-entrypoint.sh
+COPY --chmod=755 docker-entrypoint.sh /docker-entrypoint.sh
 
 RUN touch /var/log/msmtp.log && chown www-data:www-data /var/log/msmtp.log
 
